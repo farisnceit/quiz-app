@@ -1,6 +1,25 @@
+// "use client"
 import Image from "next/image";
+import { useEffect } from "react";
+
+
+import api from '../services/apiConfig/api.config'
 
 export default function Home() {
+
+
+   useEffect(()=>{
+    testAPI();
+  },[])
+
+  async function testAPI(){
+    const response = await api.get('/amount=10&type=multiple')
+    console.log(response.ok) // yay!
+
+
+  }
+
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
      
